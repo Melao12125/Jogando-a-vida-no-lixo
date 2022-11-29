@@ -1,5 +1,7 @@
 programa
 {
+	//Te pede notas, te devolve uma media e as lista bonitinho. Já que o site do GOVERNO não tem essa função, eu mesmo a fiz.
+
 	inclua biblioteca Matematica
 	inclua biblioteca Util
 
