@@ -143,7 +143,7 @@ programa
 		leia(acao)
 		escolha(acao)
 		{
-			caso '1': //Ainda vou ajeitar isso daqui (Temporario)
+			caso '1':
 			{
 				limpa()
 				ajustarPonteiro()
@@ -156,8 +156,9 @@ programa
 				pegarJogo()
 				pare
 			}
-			caso '2': (Temporario)
+			caso '2':
 			{
+//manipular mais de um vetor com um só ponteiro?
 				limpa()
 				ajustarPonteiro()
 				escreva("Você pega em suas mãos o jogo ", jogos2[ponteiro-1])
@@ -169,7 +170,7 @@ programa
 				pegarJogo()
 				pare
 			}
-			caso '3': (Temporario)
+			caso '3':
 			{
 				limpa()
 				ajustarPonteiro()
