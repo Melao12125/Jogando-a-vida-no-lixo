@@ -1,0 +1,248 @@
+programa
+{
+	inclua biblioteca Tipos
+	inclua biblioteca Util
+
+	
+
+	caracter acao
+	inteiro n = 0, n1 = 0, ponteiro1 = 8, ponteiro2 = 8, ponteiro3 = 8
+	cadeia jogos1[10] = {"Half-Life 2","Bioshock","Grand Theft Auto V","Grand Theft Auto IV","Gears Of War","Grid","Call Of Duty: Black Ops","Halo","",""},enter, maos[10]
+	cadeia jogos2[10] = {"God Of War","Spider-Man","Elden Ring","Red Dead Redemption 2","BloodBorne","Ghost Of Tsushima","CupHead","The Last Of Us","",""}
+	cadeia jogos3[10] = {"Journey","Death Stranding","Days Gone","Forza Horizon 5","Minecraft","The Elder Scrolls: Skyrim","Outer Wilds","Portal 2","",""}
+	
+	
+	
+	funcao inicio()
+	{
+		escreva("=========\nTUTORIAL\n=========","\nSempre que a frase 'O que deseja fazer' aparece, sempre digite a opção desejada, tipo '1. abrir 2. fechar ' assim por diante\nVocê entendeu? \n\n1 - Sim\n2 - Não\n")
+		leia(acao)
+		limpa()
+		se(acao == '1')
+		{
+			escreva("Muito bem")
+			continuar()
+			limpa()
+			bauDeGames()
+		}
+		senao
+		{
+		     escreva("Burro do Karalho")
+		     continuar()
+		     inicio()
+		}
+		
+		
+		
+	}
+
+
+	funcao bauDeGames()
+	{
+		
+		escreva("Você se depara com uma pequena caixa jogada em um canto da sala. Ele tem uma aparencia metálica com uma escritura em sua parte frontal dizendo 'Caixa de Jogos'.\nO que deseja fazer? \n\n1 - Abrir caixa\n2 - Chutar caixa \n3 - Sair\n")
+		leia(acao)
+		limpa()
+		escolha(acao)
+		{
+			caso '1':
+			{
+				escreva("Você se depara com 3 pilhas de jogos. O que deseja fazer?\n\n1 - Pegar jogo\n2 - Inspecionar jogos\n3 - Inserir jogo na caixa\n4 - Sair\n")
+				leia(acao)
+				escolha(acao)
+				{
+					caso '1':
+					{
+						pegarJogo()
+					}
+					caso '2':
+					{
+						inspecionarPilha()
+					}
+				}
+				pare
+			}
+			caso '2':
+			{
+				n++
+				se(n == 1)
+				{
+					escreva("Porquê caralhos você fez isso?. Não faça denovo")
+					
+				}
+				senao se(n == 2)
+				{
+					escreva("Você sente que a caixa está ficando brava")
+					
+				}
+				senao
+				{
+					escreva("A caixa puxa um três oitão e estoura seus miolos\nVocê está morto...")
+					continuar()
+					limpa()
+					escreva("A caixa puxa um três oitão e estoura seus miolos\nVocê está morto... Mentira, isso foi apenas fruto de um dejavu louco que você teve mais cedo")
+					
+					n = 0
+				}
+			continuar()
+			limpa()
+			bauDeGames()
+			pare
+			}
+			caso '3':
+			{
+				
+				pare
+			}
+			
+		}
+	}
+	
+	funcao simOuNao()
+	{
+
+		se(acao == 's')
+		{
+			acao = 'S'
+		}
+		senao
+		{
+			acao = 'N'
+		}
+		
+		escolha(acao)
+		{
+			caso 'S':
+			{
+				pare
+			}
+			caso 'N':
+			{
+				pare
+			}
+		}
+
+		
+	}
+	
+	funcao continuar()
+	{
+		escreva("\n_________________________________________\n")
+		escreva("\nPRESSIONE [ENTER] PARA CONTINUAR")
+
+		leia(enter)
+		
+	
+	}
+
+	funcao pegarJogo()
+
+	{
+		limpa()
+		escreva("De qual pilha você deseja pegar um jogo?\n\n1 - Primeira pilha\n2 - Segunda pilha\n3 - Terceira pilha\n4 - Voltar")
+		leia(acao)
+		escolha(acao)
+		{
+			caso '1':
+			{
+				limpa()
+				escreva("Você pega em suas mãos o jogo ", jogos1[ponteiro1-1])
+				maos[n] = jogos1[ponteiro1-1]
+				jogos1[ponteiro1-1] = ""
+				n++
+				ponteiro1--			
+				continuar()
+				pegarJogo()
+				pare
+			}
+			caso '2':
+			{
+//manipular mais de um vetor com um só ponteiro?
+				limpa()
+				escreva("Você pega em suas mãos o jogo ", jogos2[ponteiro2-1])
+				maos[n] = jogos2[ponteiro2-1]
+				n++
+				ponteiro2--			
+				continuar()
+				pegarJogo()
+				pare
+			}
+			caso '3':
+			{
+				limpa()
+				escreva("Você pega em suas mãos o jogo ", jogos3[ponteiro3-1])
+				maos[n] = jogos3[ponteiro3-1]
+				n++
+				ponteiro3--			
+				continuar()
+				pegarJogo()
+				pare
+			}
+			caso contrario:
+			{
+				limpa()
+				bauDeGames()
+				pare
+			}
+		}
+
+		
+	}
+	
+	funcao inspecionarPilha()
+		{
+			limpa()
+			escreva("Qual pilha você deseja inspecionar?\n\n1 - Primeira pilha\n2 - Segunda pilha\n3 - Terceira pilha\n4 - Voltar")
+			leia(acao)
+			limpa()
+			escolha(acao)
+			{
+				caso '1':
+				{
+					para(n = ponteiro1-1; n >= 0; n--) // n = ponteiro, no caso 8. o codigo vai contunuar rodadnod enquanto n for maior ou igual a 0. Isso porque vai ir decrementando sempre q o codigo for executado
+					{
+						escreva("Jogo n°", n+1," - ",jogos1[n],"\n")
+						
+					}
+					
+					continuar()
+					inspecionarPilha()
+					pare
+				}
+				caso '2':
+				{
+					para(n = ponteiro2-1; n >= 0; n--) // n = ponteiro, no caso 8. o codigo vai contunuar rodadnod enquanto n for maior ou igual a 0. Isso porque vai ir decrementando sempre q o codigo for executado
+					{
+						escreva("Jogo n°", n+1," - ",jogos2[n],"\n")
+						
+					}
+
+					continuar()
+					inspecionarPilha()
+					pare
+				}
+				caso '3':
+				{
+					para(n = ponteiro3-1; n >= 0; n--) // n = ponteiro, no caso 8. o codigo vai contunuar rodadnod enquanto n for maior ou igual a 0. Isso porque vai ir decrementando sempre q o codigo for executado
+					{
+						escreva("Jogo n°", n+1," - ",jogos3[n],"\n")
+						
+					}
+
+					continuar()
+					inspecionarPilha()
+					pare
+				}
+				caso contrario:
+				{
+					bauDeGames()
+					pare
+				}
+			}
+		}
+
+	funcao implementarPilha()
+	{
+		
+	}
+}
